@@ -3,87 +3,87 @@
   <div>
     <select name="category_id">
       {% for category in categories %}
-      <option value="{{category.id}}" {% if product.category_id == category.id %} selected {% endif %}>
-         {{category.name}}
-      </option>
+        <option value="{{category.id}}" {% if category_id == category.id %} selected {% endif %}>
+          {{category.name}}
+        </option>
       {% endfor %}
     </select>
   </div>
 </div>
 
 <div class="item">
-  <div>Título do Anúncio</div>
-    <div>
-      <input 
-        type="text" 
-        name="name" 
-        placeholder="Digite o título do anúncio" 
-        value="{{ product.name }}">
-    </div> 
+  <div>Preço do produto</div>
+  <div>
+    <input 
+      type="text" 
+      name="name" 
+      placeholder="Digite o Título do Anuncío" 
+      value="{{product.name}}"
+    >
+  </div>
+  {%if product.old_price%}
+    <input type="hidden" name="old_price" value={{product.old_price}}>
+  {%endif%}  
 </div>
-
 
 <div class="item">
   <div>Descrição</div>
-    <div>
-      <textarea name="description">
-        {{product.description}}
-      </textarea>
-    </div>
-</div>
-
-{# CAMPO DE FOTO #}
-
-<div class="item">
-  <div>Preço</div>
-    <div>
-      <input 
-        type="text" 
-        name="price" 
-        value="{{ product.price }}"
-        placeholder="Valor do Produto"
-        onkeydown="Mask.apply(this,'formatBRL')"
-        >
-    </div> 
-    {% if product.old_price %}
-      <input type="hidden" name="old_price" value={{product.old_price}}>
-    {% endif %}
-</div>
-
-<div class="item">
-  <div>Quantidade</div>
-    <div>
-      <input 
-        type="number" 
-        name="quantity" 
-        placeholder="Estoque Disponível"
-        value="{{ product.quantity }}">
-    </div> 
-</div>
-
-{%if product.status %}
-<div class="item">
-  <div>Disponível</div>
   <div>
-    <span>
-      <input 
-      type="radio" 
-      name="status" 
-      value="M1" 
-      {% if instructor.status == '1' %}
-      checked 
-      {% endif %}> Sim 
-    </span>
-    
-    <span>
-      <input 
-        type="radio" 
-        name="status" 
-        value="0" 
-        {% if instructor.status == '0' %} 
-        checked 
-        {% endif %}> Não
-    </span>
+    <textarea name="" cols="30" rows="10">
+      {{product.description}}
+    </textarea>
   </div>
 </div>
+
+{# CAMPO DE IMAGEM #}
+
+<div class="item">
+  <div>Valor</div>
+  <div>
+    <input 
+      type="number" 
+      name="price" 
+      placeholder="Digite o Valor do produto" 
+      value="{{product.price}}"
+      {# HAVERÁ UMA MASCARA DE DINHEIRO #}
+    >
+  </div>
+</div>
+
+<div class="item">
+  <div>Quantidade em Estoque</div>
+  <div>
+    <input 
+      type="number" 
+      name="quantity" 
+      placeholder="Quantidade de produtos disponíveis" 
+      value="{{product.quantity}}"
+    >
+  </div>
+</div>  
+
+{% if product.status %}
+  <div class="item">
+    <div>Disponível ?</div>
+    <div>
+      <span>
+        <input 
+          type="radio" 
+          name="status" 
+          value="1"
+          {% if product.status == '1' %}
+            checked
+          {%endif%}> Sim
+      </span>
+      <span>
+        <input 
+          type="radio" 
+          name="status" 
+          value="1"
+          {% if product.status == '0' %}
+            checked
+          {%endif%}> Não
+      </span>
+    </div>
+  </div>
 {% endif %}
