@@ -29,9 +29,7 @@
 <div class="item">
   <div>Descrição</div>
   <div>
-    <textarea name="" cols="30" rows="10">
-      {{product.description}}
-    </textarea>
+    <textarea name="description">{{product.description}}</textarea>
   </div>
 </div>
 
@@ -41,11 +39,11 @@
   <div>Valor</div>
   <div>
     <input 
-      type="number" 
+      type="text" 
       name="price" 
       placeholder="Digite o Valor do produto" 
       value="{{product.price}}"
-      {# HAVERÁ UMA MASCARA DE DINHEIRO #}
+      onkeydown="Mask.apply(this, 'formatBRL')"
     >
   </div>
 </div>
@@ -87,3 +85,5 @@
     </div>
   </div>
 {% endif %}
+
+<button class="button" type="submit">Enviar</button>

@@ -13,14 +13,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^7.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "intl": "^1.2.5",
     "method-override": "^3.0.0",
-    "nunjucks": "^3.2.0",
-    "pg": "^7.14.0"
+    "multer": "^1.4.3",
+    "nodemailer": "^6.7.0",
+    "nunjucks": "^3.2.3",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "nodemon": "^1.19.4",
+    "browser-sync": "^2.27.6",
+    "nodemon": "^2.0.14",
     "npm-run-all": "^4.1.5"
   }
 }
