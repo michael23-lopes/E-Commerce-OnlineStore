@@ -2,7 +2,7 @@
 
 :root {
   --primary-color: #6044b1;
-  --secondary-color: #381e63;
+  --secondary-color: #812ad3;
 }
 
 * {
@@ -63,23 +63,24 @@ footer {
 }
 
 .button:hover {
-  background-color: #7c5fd3;
+  background-color: #a38beb;
 }
 
 .button.edit {
-  background-color: var(--secondary-color);
+  margin-top: 20px;
+  background-color: #ad7bdb;
 }
 
 .button.delete {
-  background-color: lightgray;
+  background-color: rgb(238, 117, 117);
 }
 
 .button.edit:hover {
-  background-color: #065ac1;
+  background-color: var(--secondary-color);
 }
 
 .button.delete:hover {
-  background-color: rgb(223, 62, 62);
+  background-color: rgb(233, 48, 48);
 }
 
 /* HEADER */
