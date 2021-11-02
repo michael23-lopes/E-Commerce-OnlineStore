@@ -3,9 +3,9 @@ const db = require('../../config/db');
 module.exports = {
   all() {
     return db.query(`
-            SELECT * FROM products
-            ORDER BY updated_at DESC
-        `);
+      SELECT * FROM products
+      ORDER BY updated_at DESC
+    `);
   },
 
   create(data) {

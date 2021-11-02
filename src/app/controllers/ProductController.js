@@ -39,7 +39,7 @@ module.exports = {
     );
     await Promise.all(filesPromise);
 
-    return res.redirect(`/products/${productId}/edit`);
+    return res.redirect(`/products/${productId}/`);
   },
 
   async show(req, res) {
