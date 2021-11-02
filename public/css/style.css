@@ -452,6 +452,10 @@ form .item #photos-preview img {
   letter-spacing: 0.4px;
 }
 
+.product-single .info .description {
+  text-align: justify;
+}
+
 /* price-buy */
 .product-single .price-buy {
   display: flex;
