@@ -587,7 +587,7 @@ form .item #photos-preview img {
 .form input[name='passwordRepeat'],
 .form input[name='cpf_cnpj'],
 .form input[name='cep'] {
-  max-width: 50%;
+  max-width: 100%;
 }
 
 /* validate errors */
