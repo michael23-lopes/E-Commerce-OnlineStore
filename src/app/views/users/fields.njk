@@ -7,7 +7,7 @@
       name="price" 
       placeholder="Digite o nome completo" 
       value="{{user.price}}"
-
+      required
     >
   </div>
 </div>
@@ -20,6 +20,7 @@
       name="email" 
       placeholder="Digite o seu email" 
       value="{{user.price}}"
+      onblur="Validate.apply(this,'isEmail')"
     >
   </div>
 </div>
@@ -50,13 +51,15 @@
 {% endif%}
 
 <div class="item">
-  <div>CPF / CNPJ </div>
+  <div>CPF ou CNPJ </div>
   <div class="input">
     <input 
       type="text" 
       name="cpf_cnpj" 
       placeholder="Digite seu CPF ou CNPJ" 
       value="{{user.cpf_cnpj}}"
+      onkeydown="Mask.apply(this, 'cpfCnpj')"
+      onblur="Validate.apply(this,'isCpfCnpj')"
     >
   </div>
 </div>
@@ -70,6 +73,8 @@
       name="cep" 
       placeholder="Digite O CEP" 
       value="{{user.cep}}"
+      onkeydown="Mask.apply(this, 'cep')"
+      onblur="Validate.apply(this,'isCep')"
     >
   </div>
 </div>

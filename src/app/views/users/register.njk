@@ -2,20 +2,20 @@
 
 {% block content %}
 
-<section class="user-register container form">
-  <form method="POST" action="/users/register" enctype="multipart/form-data">
-
+<section class="user-register form">
+  <form method="POST" action="/users/register">
+  
     <div class="header">
-      <h3> Cadastro de Usuário </h3>
+      <h3>Registre-se</h3>
     </div>
 
-    <div class="fiels">
-      {% include 'users/fields.njk'%}
+    <div class="fields">
+      {% include 'users/fields.njk' %}
     </div>
-
+    
     <button class="button" type="submit">Salvar</button>
-
+    
   </form>
-</section>
 
+</section>
 {% endblock content %}

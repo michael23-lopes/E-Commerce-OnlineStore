@@ -4,6 +4,8 @@ const routes = express.Router();
 // const SessionController = require('../app/controllers/SessionController.js');
 const UserController = require('../app/controllers/UserController.js');
 
+const Validator = require('../app/validators/user');
+
 // Login/Logout
 // routes.get('/login', SessionController.loginForm);
 // routes.get('/login', SessionController.login);
@@ -17,7 +19,7 @@ const UserController = require('../app/controllers/UserController.js');
 
 // user register UserController
 routes.get('/register', UserController.registerForm);
-// routes.post('/register', UserController.post);
+routes.post('/register', Validator.post, UserController.post);
 
 // routes.get('/', UserController.show);
 // routes.put('/', UserController.update);
