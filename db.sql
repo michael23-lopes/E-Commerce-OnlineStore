@@ -43,10 +43,10 @@ CREATE TABLE "users" (
   "updated_at" timestamp DEFAULT (now())
 );
 
--- foreign key
+--> foreign key
 ALTER TABLE "products" ADD FOREIGN KEY ("user_id") REFERENCES "users"("id");
 
--- create procedure
+--> create procedure
 CREATE FUNCTION trigger_set_timestamp()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -55,35 +55,34 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- auto updated_at products
+--> auto updated_at products
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON products
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
--- auto updated_at users
+--> auto updated_at users
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON users
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
--- connect pg simple table
+--> connect pg simple table
 CREATE TABLE "session" (
   "sid" varchar NOT NULL COLLATE "default",
 	"sess" json NOT NULL,
 	"expire" timestamp(6) NOT NULL
 )
 WITH (OIDS=FALSE);
-
 ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 CREATE INDEX "IDX_session_expire" ON "session" ("expire");
 
--- token password recovery
+--> token password recovery
 ALTER TABLE "users" ADD COLUMN reset_token text;
 ALTER TABLE "users" ADD COLUMN reset_token_expires text;
 
--- cascade effect when delete user and products
+--> cascade effect when delete user and products
 ALTER TABLE "products"
 DROP CONSTRAINT products_user_id_fkey,
 ADD CONSTRAINT products_user_id_fkey
