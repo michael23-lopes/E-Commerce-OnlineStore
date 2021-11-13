@@ -18,10 +18,14 @@ routes.post('/login', SessionValidator.login, SessionController.login);
 routes.post('/logout', SessionController.logout);
 
 // Reset password /forgot
-// routes.get('/forgot-password', SessionController.forgotPassword);
-// routes.get('/password-reset', SessionController.resetPassword);
-// routes.post('/forgot-password', SessionController.forgotPassword);
-// routes.post('/password-reset', SessionController.resetPassword);
+routes.get('/forgot-password', SessionController.forgotForm);
+routes.get('/password-reset', SessionController.resetForm);
+routes.post(
+  '/forgot-password',
+  SessionValidator.forgot,
+  SessionController.forgot
+);
+routes.post('/password-reset', SessionValidator.reset, SessionController.reset);
 
 // user register UserController
 routes.get('/register', UserController.registerForm);
