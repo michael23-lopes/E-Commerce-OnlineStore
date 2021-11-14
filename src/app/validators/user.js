@@ -20,7 +20,7 @@ async function show(req, res, next) {
   const user = await User.findOne({ where: { id } });
 
   if (!user)
-    return res.render('user/register', {
+    return res.render('users/register', {
       error: 'Usuário não encontrado',
     });
 
@@ -34,7 +34,7 @@ async function post(req, res, next) {
   const fillAllFields = checkAllFields(req.body);
 
   if (fillAllFields) {
-    return res.render('user/register', fillAllFields);
+    return res.render('users/register', fillAllFields);
   }
 
   // check if user exists [email, cpf_cnpj]
@@ -67,13 +67,13 @@ async function update(req, res, next) {
   const fillAllFields = checkAllFields(req.body);
 
   if (fillAllFields) {
-    return res.render('user/register', fillAllFields);
+    return res.render('users/register', fillAllFields);
   }
 
   const { id, password } = req.body;
 
   if (!password)
-    return res.render('user/index', {
+    return res.render('users/index', {
       user: req.body,
       error: 'Coloque sua senha para atualizar seu cadastro.',
     });
@@ -83,7 +83,7 @@ async function update(req, res, next) {
   const passed = await compare(password, user.password);
 
   if (!passed)
-    return res.render('user/index', {
+    return res.render('users/index', {
       user: req.body,
       error: 'Senha incorreta',
     });

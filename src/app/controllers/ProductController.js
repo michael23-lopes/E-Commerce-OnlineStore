@@ -31,6 +31,7 @@ module.exports = {
       return res.send('Please, send at least one image');
     }
 
+    req.body.user_id = req.session.userId;
     let results = await Product.create(req.body);
     const productId = results.rows[0].id;
 
@@ -39,7 +40,7 @@ module.exports = {
     );
     await Promise.all(filesPromise);
 
-    return res.redirect(`/products/${productId}/`);
+    return res.redirect(`/products/${productId}/edit`);
   },
 
   async show(req, res) {
