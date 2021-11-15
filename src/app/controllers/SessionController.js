@@ -41,7 +41,7 @@ module.exports = {
 
       await mailer.sendMail({
         to: user.email,
-        from: 'no-reply@launchstore.com.br',
+        from: 'no-reply@onlineshop.com.br',
         subject: 'Recuperação de senha',
         html: `<h2>Redefinição de Senha</h2>
         <p> Esse email é enviado para redefinição de senha.

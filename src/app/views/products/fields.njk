@@ -36,6 +36,7 @@
 <div class="item">
   <div>Foto</div>
   <div>
+
     <div id="photos-uploud">
       <input
         id="photos-input"
@@ -43,19 +44,19 @@
         name="photos"
         multiple
         accept="image/*"
-        onchange="PhotosUpload.handleFileInput(event)"
+        onchange="PhotosUploud.handleFileInput(event)"
       >
       <p>Selecione até 6 fotos</p>
     </div>
 
     <div id="photos-preview">
-      {% if product.files %}
-        {% for image in product.files %}
+      {% if files %}
+        {% for image in files %}
           <div class="photo" id="{{image.id}}">
             <img src="{{image.src}}" alt="{{image.name}}">
             <i
               class="material-icons"
-              onclick="PhotosUpload.removeOldPhoto(event)"
+              onclick="PhotosUploud.removeOldPhoto(event)"
             >
             close
             </i>
@@ -75,7 +76,7 @@
       type="text"
       name="price"
       placeholder="Preço do produto" 
-      value="{{product.formattedPrice}}"
+      value="{{product.price}}"
       onkeydown="Mask.apply(this,'formatBRL')"
     >
   </div>
@@ -84,7 +85,7 @@
     <input
       type="hidden"
       name="old_price"
-      value="{{product.formattedOldPrice}}"
+      value="{{product.oldPrice}}"
     >
   {% endif %}
 </div>
