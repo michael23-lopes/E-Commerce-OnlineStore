@@ -1,3 +1,8 @@
+.users-index,
+.users-register {
+  max-width: 500px;
+}
+
 .users-ads {
   max-width: 700px;
 }
@@ -6,8 +11,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 32px;
-
-  padding: 16px;
+  padding: 16px 0;
 }
 
 .users-ads .item {
@@ -17,16 +21,14 @@
   color: #444;
 }
 
-.users-ads .item img {
+.users-ads .item .image {
   width: 100px;
   height: 100px;
-
-  object-fit: cover;
-  object-position: center;
-
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 8px;
   border: 1px solid #eee;
-
   box-shadow: 2px 2px 4px -4px black;
 }
 
@@ -39,7 +41,8 @@
 .users-ads .info .title {
   font-size: 18px;
   font-weight: normal;
-  color: rgb(70, 70, 70);
+  color: rgb(74, 74, 74);
+  margin-bottom: 4px;
 }
 
 .users-ads .info .price {
@@ -61,10 +64,10 @@
 }
 
 .users-ads .info .actions a {
-  padding-top: 4px;
   margin-right: 16px;
   color: var(--primary-color);
 }
+
 .users-ads .info .actions a:hover {
   font-weight: bold;
   text-decoration: underline;
