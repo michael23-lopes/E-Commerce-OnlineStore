@@ -5,9 +5,9 @@ const LoadProductService = require('../services/LoadProductService');
 module.exports = {
   async index(req, res) {
     try {
-      const { filter, category } = req.query;
+      let { filter, category } = req.query;
 
-      if (!filter || filter.toLowerCase() == 'toda a loja') filter = null;
+      if (!filter || filter.toLowerCase() == 'todos os produtos') filter = null;
 
       let products = await Product.search({ filter, category });
 
@@ -16,7 +16,7 @@ module.exports = {
       products = await Promise.all(productsPromise);
 
       const search = {
-        term: filter || 'Toda a loja',
+        term: req.query.filter || 'Todos os produtos',
         total: products.length,
       };
 
@@ -28,14 +28,16 @@ module.exports = {
         .reduce((categoriesFiltered, category) => {
           const found = categoriesFiltered.some((cat) => cat.id == category.id);
 
-          if (!found) categoriesFiltered.push(category);
+          if (!found) {
+            categoriesFiltered.push(category);
+          }
 
           return categoriesFiltered;
         }, []);
 
-      return res.render('search/index', { products, search, categories });
+      return res.render('search/index', { products, categories, search });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   },
 };
