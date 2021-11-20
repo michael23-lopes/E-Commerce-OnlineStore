@@ -41,6 +41,11 @@ const Base = {
     const results = await find(filters, this.table);
     return results.rows;
   },
+  async findOneWithDeleted(filter) {
+    const results = await find(filtes, `${this.table}_whith_deleted`);
+    return results.rows[0];
+  },
+
   async findOneWithDeleted(filters) {
     const results = await find(filters, `${this.table}_with_deleted`);
     return results.rows[0];

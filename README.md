@@ -41,10 +41,10 @@ O OnlineStore é um e-Commerce. Um sistema de compra e venda de produtos. Os usu
 
 <br>
 
-<!-- <h3 align="center">Compra de Produto</h3>
+<h3 align="center">Processo de Compra de Produto</h3>
 <p align="center">
-  <img src=".github/" alt="página admin">
-</p> -->
+  <img src=".github/compraDeProduto.gif" alt="página de compra">
+</p>
 
 <br>
 

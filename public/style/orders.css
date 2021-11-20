@@ -1,7 +1,7 @@
 .container {
   --status-canceled: tomato;
   --status-sold: rgb(14, 216, 24);
-  --status-open: rgb(0, 195, 255);
+  --status-open: rgb(0, 155, 202);
 }
 
 .order-success,
@@ -38,7 +38,7 @@
 }
 
 .order-success a:hover {
-  background-color: #d7780b;
+  background-color: #9268eb;
 }
 
 .order-error a {
@@ -62,7 +62,7 @@
   background-color: #da2f2f;
 }
 
-/*my orders */
+/* my orders */
 
 .orders .item-container {
   display: grid;
@@ -100,7 +100,7 @@
   flex-direction: column;
 }
 
-.tem .title,
+.item .title,
 .item .price,
 .item .updated-at {
   color: #555;
@@ -121,7 +121,7 @@
 
 .orders .status {
   justify-self: center;
-  color: white;
+  color: #111;
   border-radius: 16px;
   padding: 4px 12px;
 
